@@ -22,15 +22,15 @@ use SimpleXMLElement;
  */
 class Messaging extends Option
 {
-    const MESSAGING_LANGUAGE_EN = 'EN';
-    const MESSAGING_LANGUAGE_NL = 'NL';
-    const MESSAGING_LANGUAGE_FR = 'FR';
-    const MESSAGING_LANGUAGE_DE = 'DE';
+    public const MESSAGING_LANGUAGE_EN = 'EN';
+    public const MESSAGING_LANGUAGE_NL = 'NL';
+    public const MESSAGING_LANGUAGE_FR = 'FR';
+    public const MESSAGING_LANGUAGE_DE = 'DE';
 
-    const MESSAGING_TYPE_INFO_DISTRIBUTED = 'infoDistributed';
-    const MESSAGING_TYPE_INFO_NEXT_DAY = 'infoNextDay';
-    const MESSAGING_TYPE_INFO_REMINDER = 'infoReminder';
-    const MESSAGING_TYPE_KEEP_ME_INFORMED = 'keepMeInformed';
+    public const MESSAGING_TYPE_INFO_DISTRIBUTED = 'infoDistributed';
+    public const MESSAGING_TYPE_INFO_NEXT_DAY = 'infoNextDay';
+    public const MESSAGING_TYPE_INFO_REMINDER = 'infoReminder';
+    public const MESSAGING_TYPE_KEEP_ME_INFORMED = 'keepMeInformed';
 
     /**
      * @var string
@@ -200,7 +200,7 @@ class Messaging extends Option
      *
      * @return DomElement
      */
-    public function toXML(DOMDocument $document, $prefix = 'common')
+    public function toXML(DomDocument $document, $prefix = 'common')
     {
         $messaging = $document->createElement(XmlHelper::getPrefixedTagName($this->getType(), $prefix));
         $messaging->setAttribute('language', $this->getLanguage());

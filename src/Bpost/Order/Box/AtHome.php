@@ -24,7 +24,7 @@ use SimpleXMLElement;
  */
 class AtHome extends National
 {
-    /** @var \Bpost\BpostApiClient\Bpost\Order\Receiver */
+    /** @var Receiver */
     private $receiver;
 
     /** @var string */
@@ -61,7 +61,7 @@ class AtHome extends National
     }
 
     /**
-     * @param \Bpost\BpostApiClient\Bpost\Order\Receiver $receiver
+     * @param Receiver $receiver
      */
     public function setReceiver($receiver)
     {
@@ -69,7 +69,7 @@ class AtHome extends National
     }
 
     /**
-     * @return \Bpost\BpostApiClient\Bpost\Order\Receiver
+     * @return Receiver
      */
     public function getReceiver()
     {
@@ -95,11 +95,11 @@ class AtHome extends National
     /**
      * Return the object as an array for usage in the XML
      *
-     * @param DomDocument $document
+     * @param DOMDocument $document
      * @param string      $prefix
      * @param string      $type
      *
-     * @return DomElement
+     * @return DOMElement
      */
     public function toXML(DOMDocument $document, $prefix = null, $type = null)
     {
@@ -143,7 +143,7 @@ class AtHome extends National
      * @throws BpostXmlInvalidItemException
      * @throws \Bpost\BpostApiClient\BpostException
      */
-    public static function createFromXML(SimpleXMLElement $xml, National $self = null)
+    public static function createFromXML(SimpleXMLElement $xml, ?National $self = null)
     {
         if ($self === null) {
             $self = new self();

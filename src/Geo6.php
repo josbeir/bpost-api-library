@@ -22,19 +22,19 @@ use SimpleXMLElement;
 class Geo6
 {
     // URL for the api
-    const API_URL = 'https://pudo.bpost.be/Locator';
+    public const API_URL = 'https://pudo.bpost.be/Locator';
 
     // current version
-    const VERSION = '3.7.0';
+    public const VERSION = '3.7.0';
 
     /**
      * @see getPointType
      * @see getServicePointPageUrl
      */
-    const POINT_TYPE_POST_OFFICE = 1;
-    const POINT_TYPE_POST_POINT = 2;
-    const POINT_TYPE_BPACK_247 = 4;
-    const POINT_TYPE_CLICK_COLLECT_SHOP = 8;
+    public const POINT_TYPE_POST_OFFICE = 1;
+    public const POINT_TYPE_POST_POINT = 2;
+    public const POINT_TYPE_BPACK_247 = 4;
+    public const POINT_TYPE_CLICK_COLLECT_SHOP = 8;
 
     /** @var ApiCaller */
     private $apiCaller;
@@ -388,7 +388,7 @@ class Geo6
         $withPostOffice = true,
         $withPostPoint = true,
         $withBpack247 = false,
-        $withClickAndCollectShop = false
+        $withClickAndCollectShop = false,
     ) {
         return
             ($withPostOffice ? self::POINT_TYPE_POST_OFFICE : 0)

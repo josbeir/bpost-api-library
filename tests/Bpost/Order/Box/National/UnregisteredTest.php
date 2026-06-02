@@ -5,10 +5,10 @@ namespace Tests\Bpost\Order\Box\National;
 use Bpost\BpostApiClient\Bpost\Order\Box\National\ParcelLockerReducedMobilityZone;
 use Bpost\BpostApiClient\Bpost\Order\Box\National\Unregistered;
 use DOMDocument;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use SimpleXMLElement;
 
-class UnregisteredTest extends PHPUnit_Framework_TestCase
+class UnregisteredTest extends TestCase
 {
     /**
      * Create a generic DOM Document
@@ -46,8 +46,6 @@ class UnregisteredTest extends PHPUnit_Framework_TestCase
         $rootDom->appendChild($self->toXml($rootDom, 'test'));
 
         $this->assertEquals($this->getXmlWithPrefix(), $rootDom->saveXML());
-
-        return;
     }
 
     public function testCreateFromXml()

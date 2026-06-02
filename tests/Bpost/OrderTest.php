@@ -15,10 +15,10 @@ use Bpost\BpostApiClient\Bpost\Order\PugoAddress;
 use Bpost\BpostApiClient\Bpost\Order\Sender;
 use DOMDocument;
 use DOMElement;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use SimpleXMLElement;
 
-class OrderTest extends PHPUnit_Framework_TestCase
+class OrderTest extends TestCase
 {
     public function testToXml()
     {
@@ -88,11 +88,9 @@ class OrderTest extends PHPUnit_Framework_TestCase
         $this->assertSame($this->getCreateOrderXml(), $document->saveXML());
     }
 
-    /**
-     * @expectedException \Bpost\BpostApiClient\Exception\XmlException\BpostXmlNoReferenceFoundException
-     */
     public function testCreateFromXmlWithException()
     {
+        $this->expectException(\Bpost\BpostApiClient\Exception\XmlException\BpostXmlNoReferenceFoundException::class);
         Order::createFromXML(new SimpleXMLElement($this->getFetchOrderWithReferenceXml()));
     }
 
@@ -139,19 +137,19 @@ class OrderTest extends PHPUnit_Framework_TestCase
         $this->assertCount(6, $nationalBox->getOptions());
         $options = $nationalBox->getOptions();
 
-        /** @var Box\Option\Messaging $option */
+        /** @var Messaging $option */
         $option = $options[0];
         $this->assertInstanceOf('Bpost\BpostApiClient\Bpost\Order\Box\Option\Messaging', $option);
-        $this->assertSame(Box\Option\Messaging::MESSAGING_TYPE_INFO_DISTRIBUTED, $option->getType());
-        $this->assertSame(Box\Option\Messaging::MESSAGING_LANGUAGE_FR, $option->getLanguage());
+        $this->assertSame(Messaging::MESSAGING_TYPE_INFO_DISTRIBUTED, $option->getType());
+        $this->assertSame(Messaging::MESSAGING_LANGUAGE_FR, $option->getLanguage());
         $this->assertNull($option->getMobilePhone());
         $this->assertSame('pomme@antidot.com', $option->getEmailAddress());
 
-        /** @var Box\Option\Messaging $option */
+        /** @var Messaging $option */
         $option = $options[1];
         $this->assertInstanceOf('Bpost\BpostApiClient\Bpost\Order\Box\Option\Messaging', $option);
-        $this->assertSame(Box\Option\Messaging::MESSAGING_TYPE_KEEP_ME_INFORMED, $option->getType());
-        $this->assertSame(Box\Option\Messaging::MESSAGING_LANGUAGE_EN, $option->getLanguage());
+        $this->assertSame(Messaging::MESSAGING_TYPE_KEEP_ME_INFORMED, $option->getType());
+        $this->assertSame(Messaging::MESSAGING_LANGUAGE_EN, $option->getLanguage());
         $this->assertNull($option->getMobilePhone());
         $this->assertSame('pomme@antidot.com', $option->getEmailAddress());
 
@@ -165,11 +163,11 @@ class OrderTest extends PHPUnit_Framework_TestCase
         $option = $options[3];
         $this->assertInstanceOf('Bpost\BpostApiClient\Bpost\Order\Box\Option\Signed', $option);
 
-        /** @var Box\Option\SaturdayDelivery $option */
+        /** @var SaturdayDelivery $option */
         $option = $options[4];
         $this->assertInstanceOf('Bpost\BpostApiClient\Bpost\Order\Box\Option\SaturdayDelivery', $option);
 
-        /** @var Box\Option\CashOnDelivery $option */
+        /** @var CashOnDelivery $option */
         $option = $options[5];
         $this->assertInstanceOf('Bpost\BpostApiClient\Bpost\Order\Box\Option\CashOnDelivery', $option);
         $this->assertSame(1234.56, $option->getAmount());

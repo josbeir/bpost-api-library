@@ -21,7 +21,7 @@ class SaturdayDelivery extends Option
     /**
      * Return the object as an array for usage in the XML
      *
-     * @param DomDocument $document
+     * @param DOMDocument $document
      * @param string      $prefix
      *
      * @return DomElement

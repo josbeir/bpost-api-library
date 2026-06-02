@@ -15,7 +15,7 @@ use SimpleXMLElement;
  */
 class Address
 {
-    const TAG_NAME = 'common:address';
+    public const TAG_NAME = 'common:address';
 
     /**
      * @var string
@@ -195,7 +195,7 @@ class Address
         $box = null,
         $postalCode = null,
         $locality = null,
-        $countryCode = null
+        $countryCode = null,
     ) {
         if ($streetName !== null) {
             $this->setStreetName($streetName);
@@ -274,8 +274,8 @@ class Address
 
     /**
      * @param DOMDocument $document
-     * @param $prefix
-     * @param DOMElement $address
+     * @param             $prefix
+     * @param DOMElement  $address
      */
     private function streetToXML(DOMDocument $document, $prefix, DOMElement $address)
     {
@@ -291,8 +291,8 @@ class Address
 
     /**
      * @param DOMDocument $document
-     * @param $prefix
-     * @param DOMElement $address
+     * @param             $prefix
+     * @param DOMElement  $address
      */
     private function localityToXML(DOMDocument $document, $prefix, DOMElement $address)
     {
@@ -316,8 +316,8 @@ class Address
 
     /**
      * @param DOMDocument $document
-     * @param $prefix
-     * @param DOMElement $address
+     * @param             $prefix
+     * @param DOMElement  $address
      */
     private function countryToXML(DOMDocument $document, $prefix, DOMElement $address)
     {
@@ -333,8 +333,8 @@ class Address
 
     /**
      * @param DOMDocument $document
-     * @param $prefix
-     * @param DOMElement $address
+     * @param             $prefix
+     * @param DOMElement  $address
      */
     private function streetNumbersToXML(DOMDocument $document, $prefix, DOMElement $address)
     {

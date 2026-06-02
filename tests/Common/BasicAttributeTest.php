@@ -7,7 +7,7 @@ use Bpost\BpostApiClient\Exception\BpostLogicException;
 use Bpost\BpostApiClient\Exception\BpostLogicException\BpostInvalidLengthException;
 use Bpost\BpostApiClient\Exception\BpostLogicException\BpostInvalidPatternException;
 use Bpost\BpostApiClient\Exception\BpostLogicException\BpostInvalidValueException;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
 class BasicAttributeFake extends BasicAttribute
 {
@@ -30,7 +30,7 @@ class BasicAttributeFake extends BasicAttribute
     }
 }
 
-class BasicAttributeTest extends PHPUnit_Framework_TestCase
+class BasicAttributeTest extends TestCase
 {
     public function testSetKey()
     {
@@ -41,11 +41,9 @@ class BasicAttributeTest extends PHPUnit_Framework_TestCase
         $this->assertSame('myKey', $fake->getKey());
     }
 
-    /**
-     * @expectedException \Bpost\BpostApiClient\Exception\BpostLogicException
-     */
     public function testGetValue()
     {
+        $this->expectException(BpostLogicException::class);
         $fake = new BasicAttributeFake('qsd');
         $this->assertSame('qsd', $fake->getValue());
 

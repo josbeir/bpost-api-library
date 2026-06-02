@@ -17,29 +17,29 @@ use SimpleXMLElement;
  */
 class Box
 {
-    const BOX_STATUS_OPEN = 'OPEN';
-    const BOX_STATUS_PENDING = 'PENDING';
-    const BOX_STATUS_PRINTED = 'PRINTED';
-    const BOX_STATUS_CANCELLED = 'CANCELLED';
-    const BOX_STATUS_ON_HOLD = 'ON-HOLD';
-    const BOX_STATUS_ANNOUNCED = 'ANNOUNCED';
-    const BOX_STATUS_IN_TRANSIT = 'IN_TRANSIT';
-    const BOX_STATUS_AWAITING_PICKUP = 'AWAITING_PICKUP';
-    const BOX_STATUS_DELIVERED = 'DELIVERED';
-    const BOX_STATUS_BACK_TO_SENDER = 'BACK_TO_SENDER';
+    public const BOX_STATUS_OPEN = 'OPEN';
+    public const BOX_STATUS_PENDING = 'PENDING';
+    public const BOX_STATUS_PRINTED = 'PRINTED';
+    public const BOX_STATUS_CANCELLED = 'CANCELLED';
+    public const BOX_STATUS_ON_HOLD = 'ON-HOLD';
+    public const BOX_STATUS_ANNOUNCED = 'ANNOUNCED';
+    public const BOX_STATUS_IN_TRANSIT = 'IN_TRANSIT';
+    public const BOX_STATUS_AWAITING_PICKUP = 'AWAITING_PICKUP';
+    public const BOX_STATUS_DELIVERED = 'DELIVERED';
+    public const BOX_STATUS_BACK_TO_SENDER = 'BACK_TO_SENDER';
 
     /**
-     * @var \Bpost\BpostApiClient\Bpost\Order\Sender
+     * @var Sender
      */
     private $sender;
 
     /**
-     * @var \Bpost\BpostApiClient\Bpost\Order\Box\AtHome
+     * @var Box\AtHome
      */
     private $nationalBox;
 
     /**
-     * @var \Bpost\BpostApiClient\Bpost\Order\Box\International
+     * @var Box\International
      */
     private $internationalBox;
 
@@ -68,7 +68,7 @@ class Box
     }
 
     /**
-     * @param \Bpost\BpostApiClient\Bpost\Order\Box\International $internationalBox
+     * @param Box\International $internationalBox
      */
     public function setInternationalBox(Box\International $internationalBox)
     {
@@ -76,7 +76,7 @@ class Box
     }
 
     /**
-     * @return \Bpost\BpostApiClient\Bpost\Order\Box\International
+     * @return Box\International
      */
     public function getInternationalBox()
     {
@@ -84,7 +84,7 @@ class Box
     }
 
     /**
-     * @param \Bpost\BpostApiClient\Bpost\Order\Box\National $nationalBox
+     * @param Box\National $nationalBox
      */
     public function setNationalBox(Box\National $nationalBox)
     {
@@ -92,7 +92,7 @@ class Box
     }
 
     /**
-     * @return \Bpost\BpostApiClient\Bpost\Order\Box\National
+     * @return Box\National
      */
     public function getNationalBox()
     {
@@ -116,7 +116,7 @@ class Box
     }
 
     /**
-     * @param \Bpost\BpostApiClient\Bpost\Order\Sender $sender
+     * @param Sender $sender
      */
     public function setSender(Sender $sender)
     {
@@ -124,7 +124,7 @@ class Box
     }
 
     /**
-     * @return \Bpost\BpostApiClient\Bpost\Order\Sender
+     * @return Sender
      */
     public function getSender()
     {
@@ -226,10 +226,10 @@ class Box
     /**
      * Return the object as an array for usage in the XML
      *
-     * @param DomDocument $document
+     * @param DOMDocument $document
      * @param string      $prefix
      *
-     * @return DomElement
+     * @return DOMElement
      */
     public function toXML(DOMDocument $document, $prefix = null)
     {
@@ -315,8 +315,8 @@ class Box
 
     /**
      * @param DOMDocument $document
-     * @param $prefix
-     * @param DOMElement $box
+     * @param             $prefix
+     * @param DOMElement  $box
      */
     private function barcodeToXML(DOMDocument $document, $prefix, DOMElement $box)
     {
@@ -332,8 +332,8 @@ class Box
 
     /**
      * @param DOMDocument $document
-     * @param $prefix
-     * @param DOMElement $box
+     * @param             $prefix
+     * @param DOMElement  $box
      */
     private function boxToXML(DOMDocument $document, $prefix, DOMElement $box)
     {
@@ -351,8 +351,8 @@ class Box
 
     /**
      * @param DOMDocument $document
-     * @param $prefix
-     * @param DOMElement $box
+     * @param             $prefix
+     * @param DOMElement  $box
      */
     private function senderToXML(DOMDocument $document, $prefix, DOMElement $box)
     {
@@ -365,8 +365,8 @@ class Box
 
     /**
      * @param DOMDocument $document
-     * @param $prefix
-     * @param DOMElement $box
+     * @param             $prefix
+     * @param DOMElement  $box
      */
     private function remarkToXML(DOMDocument $document, $prefix, DOMElement $box)
     {
@@ -382,8 +382,8 @@ class Box
 
     /**
      * @param DOMDocument $document
-     * @param $prefix
-     * @param DOMElement $box
+     * @param             $prefix
+     * @param DOMElement  $box
      */
     private function additionalCustomerReferenceToXML(DOMDocument $document, $prefix, DOMElement $box)
     {
@@ -397,6 +397,5 @@ class Box
                 $additionalCustomerReference
             )
         );
-
     }
 }

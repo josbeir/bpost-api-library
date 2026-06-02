@@ -7,9 +7,9 @@ use Bpost\BpostApiClient\Exception\BpostLogicException\BpostInvalidValueExceptio
 
 class Language extends BasicAttribute
 {
-    const LANGUAGE_EN = 'EN';
-    const LANGUAGE_FR = 'FR';
-    const LANGUAGE_NL = 'NL';
+    public const LANGUAGE_EN = 'EN';
+    public const LANGUAGE_FR = 'FR';
+    public const LANGUAGE_NL = 'NL';
 
     /**
      * @throws BpostInvalidValueException

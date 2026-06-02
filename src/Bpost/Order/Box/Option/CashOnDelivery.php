@@ -105,7 +105,7 @@ class CashOnDelivery extends Option
      *
      * @return DomElement
      */
-    public function toXML(DOMDocument $document, $prefix = 'common')
+    public function toXML(DomDocument $document, $prefix = 'common')
     {
         $cod = $document->createElement(XmlHelper::getPrefixedTagName('cod', $prefix));
 

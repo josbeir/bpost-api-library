@@ -195,7 +195,7 @@ class Order
         $lines = $this->getLines();
         if (!empty($lines)) {
             foreach ($lines as $line) {
-                /** @var $line \Bpost\BpostApiClient\Bpost\Order\Line */
+                /** @var \Bpost\BpostApiClient\Bpost\Order\Line $line */
                 $order->appendChild(
                     $line->toXML($document, 'tns')
                 );
@@ -205,7 +205,7 @@ class Order
         $boxes = $this->getBoxes();
         if (!empty($boxes)) {
             foreach ($boxes as $box) {
-                /** @var $box \Bpost\BpostApiClient\Bpost\Order\Box */
+                /** @var \Bpost\BpostApiClient\Bpost\Order\Box $box */
                 $order->appendChild(
                     $box->toXML($document, 'tns')
                 );

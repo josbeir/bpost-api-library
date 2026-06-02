@@ -78,7 +78,7 @@ class Line
      *
      * @return DOMElement
      */
-    public function toXML(DOMDocument $document, $prefix = null)
+    public function toXML(DomDocument $document, $prefix = null)
     {
         $line = $document->createElement(XmlHelper::getPrefixedTagName('orderLine', $prefix));
 

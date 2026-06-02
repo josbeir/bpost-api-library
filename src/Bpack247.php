@@ -23,10 +23,10 @@ use SimpleXMLElement;
 class Bpack247
 {
     // URL for the api
-    const API_URL = 'http://www.bpack247.be/BpostRegistrationWebserviceREST/servicecontroller.svc';
+    public const API_URL = 'http://www.bpack247.be/BpostRegistrationWebserviceREST/servicecontroller.svc';
 
     // current version
-    const VERSION = '3.7.0';
+    public const VERSION = '3.7.0';
 
     /**
      * The account id

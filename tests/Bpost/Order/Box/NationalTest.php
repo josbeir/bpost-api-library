@@ -11,7 +11,7 @@ use Bpost\BpostApiClient\Bpost\ProductConfiguration\Option;
 use Bpost\BpostApiClient\Common\XmlHelper;
 use DOMDocument;
 use DOMElement;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 use SimpleXMLElement;
 
 class NationalFake extends National
@@ -19,11 +19,11 @@ class NationalFake extends National
     /**
      * Return the object as an array for usage in the XML
      *
-     * @param DomDocument $document
+     * @param DOMDocument $document
      * @param string      $prefix
      * @param string      $type
      *
-     * @return DomElement
+     * @return DOMElement
      */
     public function toXML(DOMDocument $document, $prefix = null, $type = null)
     {
@@ -39,13 +39,13 @@ class NationalFake extends National
      *
      * @return National
      */
-    public static function createFromXML(SimpleXMLElement $xml, National $self = null)
+    public static function createFromXML(SimpleXMLElement $xml, ?National $self = null)
     {
         return parent::createFromXML($xml->nationalFake, new self());
     }
 }
 
-class NationalTest extends PHPUnit_Framework_TestCase
+class NationalTest extends TestCase
 {
     /**
      * Tests the methods that are implemented by the children
@@ -54,7 +54,7 @@ class NationalTest extends PHPUnit_Framework_TestCase
     public function testMethodsThatAreImplementedByChildren()
     {
         $possibleProductValues = National::getPossibleProductValues();
-        $this->assertInternalType('array', $possibleProductValues);
+        $this->assertIsArray($possibleProductValues);
         $this->assertEmpty($possibleProductValues);
     }
 

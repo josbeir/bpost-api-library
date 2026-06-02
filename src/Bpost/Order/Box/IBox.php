@@ -22,7 +22,7 @@ interface IBox
     public function getOptions();
 
     /**
-     * @param \Bpost\BpostApiClient\Bpost\Order\Box\Option\Option $option
+     * @param Option\Option $option
      */
     public function addOption(Option\Option $option);
 
@@ -51,7 +51,7 @@ interface IBox
      *
      * @return DomElement
      */
-    public function toXML(DOMDocument $document, $prefix = null);
+    public function toXML(DomDocument $document, $prefix = null);
 
     /**
      * @param SimpleXMLElement $xml

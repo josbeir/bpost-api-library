@@ -4,7 +4,6 @@ namespace Bpost\BpostApiClient\Bpost\Order\Box;
 
 use Bpost\BpostApiClient\Bpost;
 use Bpost\BpostApiClient\Bpost\Order\Box\National\Unregistered;
-use Bpost\BpostApiClient\Bpost\Order\Box\Option\Messaging;
 use Bpost\BpostApiClient\Bpost\Order\ParcelsDepotAddress;
 use Bpost\BpostApiClient\Bpost\ProductConfiguration\Product;
 use Bpost\BpostApiClient\Common\XmlHelper;
@@ -33,7 +32,7 @@ class At247 extends National
     /** @var string */
     private $parcelsDepotName;
 
-    /** @var \Bpost\BpostApiClient\Bpost\Order\ParcelsDepotAddress */
+    /** @var ParcelsDepotAddress */
     private $parcelsDepotAddress;
 
     /** @var string */
@@ -71,7 +70,7 @@ class At247 extends National
     }
 
     /**
-     * @param \Bpost\BpostApiClient\Bpost\Order\ParcelsDepotAddress $parcelsDepotAddress
+     * @param ParcelsDepotAddress $parcelsDepotAddress
      */
     public function setParcelsDepotAddress($parcelsDepotAddress)
     {
@@ -79,7 +78,7 @@ class At247 extends National
     }
 
     /**
-     * @return \Bpost\BpostApiClient\Bpost\Order\ParcelsDepotAddress
+     * @return ParcelsDepotAddress
      */
     public function getParcelsDepotAddress()
     {
@@ -210,11 +209,11 @@ class At247 extends National
     /**
      * Return the object as an array for usage in the XML
      *
-     * @param DomDocument $document
+     * @param DOMDocument $document
      * @param string      $prefix
      * @param string      $type
      *
-     * @return DomElement
+     * @return DOMElement
      */
     public function toXML(DOMDocument $document, $prefix = null, $type = null)
     {
@@ -310,9 +309,9 @@ class At247 extends National
      * @throws BpostInvalidValueException
      * @throws BpostNotImplementedException
      * @throws \Bpost\BpostApiClient\Exception\BpostLogicException\BpostInvalidLengthException
-     * @throws \Bpost\BpostApiClient\Exception\XmlException\BpostXmlInvalidItemException
+     * @throws BpostXmlInvalidItemException
      */
-    public static function createFromXML(SimpleXMLElement $xml, National $self = null)
+    public static function createFromXML(SimpleXMLElement $xml, ?National $self = null)
     {
         if ($self === null) {
             $self = new self();

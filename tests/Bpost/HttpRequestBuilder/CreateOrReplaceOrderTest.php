@@ -13,9 +13,10 @@ use Bpost\BpostApiClient\Bpost\Order\Box\Option\SaturdayDelivery;
 use Bpost\BpostApiClient\Bpost\Order\Line;
 use Bpost\BpostApiClient\Bpost\Order\PugoAddress;
 use Bpost\BpostApiClient\Bpost\Order\Sender;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\TestCase;
 
-class CreateOrReplaceOrderTest extends PHPUnit_Framework_TestCase
+class CreateOrReplaceOrderTest extends TestCase
 {
     /**
      * @param array  $input
@@ -23,12 +24,10 @@ class CreateOrReplaceOrderTest extends PHPUnit_Framework_TestCase
      * @param string $xml
      * @param string $method
      * @param bool   $isExpectXml
-     * @param array  $headers
      *
      * @return void
-     *
-     * @dataProvider dataResults
      */
+    #[DataProvider('dataResults')]
     public function testResults(array $input, $url, $xml, $headers, $method, $isExpectXml)
     {
         $builder = new CreateOrReplaceOrderBuilder($input[0], $input[1]);
@@ -40,15 +39,15 @@ class CreateOrReplaceOrderTest extends PHPUnit_Framework_TestCase
         $this->assertSame($headers, $builder->getHeaders());
     }
 
-    public function dataResults()
+    public static function dataResults()
     {
         $accountId = '123456789';
 
         return array(
             array(
-                'input' => array($this->getOrder(), $accountId),
+                'input' => array(self::getOrder(), $accountId),
                 'url' => '/orders',
-                'xml' => $this->getOrderXml(),
+                'xml' => self::getOrderXml(),
                 'headers' => array('Content-type: application/vnd.bpost.shm-order-v5+XML'),
                 'method' => 'POST',
                 'isExpectXml' => false,
@@ -59,7 +58,7 @@ class CreateOrReplaceOrderTest extends PHPUnit_Framework_TestCase
     /**
      * @return Order
      */
-    private function getOrder()
+    private static function getOrder()
     {
         $order = new Order('ref_1');
 
@@ -118,13 +117,12 @@ class CreateOrReplaceOrderTest extends PHPUnit_Framework_TestCase
         $box->setAdditionalCustomerReferenceSuffix('PHPx.y');
 
         $order->setBoxes(array());
-        $this->assertCount(0, $order->getBoxes());
         $order->addBox($box);
 
         return $order;
     }
 
-    private function getOrderXml()
+    private static function getOrderXml()
     {
         return <<< XML
 <?xml version="1.0" encoding="utf-8"?>

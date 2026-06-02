@@ -214,11 +214,11 @@ class International implements IBox
      * @param DomDocument $document
      * @param string      $prefix
      *
-     * @return DOMElement
+     * @return DomElement
      *
      * @throws DOMException
      */
-    public function toXML(DOMDocument $document, $prefix = null)
+    public function toXML(DomDocument $document, $prefix = null)
     {
         $internationalBox = $document->createElement(XmlHelper::getPrefixedTagName('internationalBox', $prefix));
         $prefix = 'international';

@@ -1,4 +1,5 @@
 <?php
+
 namespace Bpost\BpostApiClient\Bpost\Order\Box;
 
 use Bpost\BpostApiClient\Bpost;
@@ -9,6 +10,9 @@ use Bpost\BpostApiClient\Bpost\Order\Receiver;
 use Bpost\BpostApiClient\Bpost\ProductConfiguration\Product;
 use Bpost\BpostApiClient\Exception\BpostLogicException\BpostInvalidValueException;
 use Bpost\BpostApiClient\Exception\BpostNotImplementedException;
+use DOMDocument;
+use DOMElement;
+use SimpleXMLElement;
 
 class AtIntlPugo extends International
 {
@@ -38,6 +42,7 @@ class AtIntlPugo extends International
 
     /**
      * @param string $product Possible values are: bpack@bpost
+     *
      * @throws BpostInvalidValueException
      */
     public function setProduct($product)
@@ -163,6 +168,7 @@ class AtIntlPugo extends International
         if ($this->shopHandlingInstruction !== null) {
             return $this->shopHandlingInstruction->getValue();
         }
+
         return null;
     }
 
@@ -177,12 +183,13 @@ class AtIntlPugo extends International
     /**
      * Return the object as an array for usage in the XML
      *
-     * @param  \DomDocument $document
-     * @param  string       $prefix
-     * @param  string       $type
-     * @return \DomElement
+     * @param DomDocument $document
+     * @param string      $prefix
+     * @param string      $type
+     *
+     * @return DomElement
      */
-    public function toXML(\DOMDocument $document, $prefix = null, $type = null)
+    public function toXML(DOMDocument $document, $prefix = null, $type = null)
     {
         $internationalBox = $document->createElement($this->getPrefixedTagName('internationalBox', 'tns'));
         $boxElement = parent::toPugoXML($document, 'international', 'atIntlPugo');
@@ -208,15 +215,16 @@ class AtIntlPugo extends International
 
         $this->addToXmlRequestedDeliveryDate($document, $boxElement, $prefix);
         $this->addToXmlShopHandlingInstruction($document, $boxElement, $prefix);
+
         return $internationalBox;
     }
 
     /**
-     * @param \DOMDocument $document
-     * @param \DOMElement  $typeElement
-     * @param string       $prefix
+     * @param DOMDocument $document
+     * @param DOMElement  $typeElement
+     * @param string      $prefix
      */
-    protected function addToXmlRequestedDeliveryDate(\DOMDocument $document, \DOMElement $typeElement, $prefix)
+    protected function addToXmlRequestedDeliveryDate(DOMDocument $document, DOMElement $typeElement, $prefix)
     {
         if ($this->getRequestedDeliveryDate() !== null) {
             $typeElement->appendChild(
@@ -225,7 +233,7 @@ class AtIntlPugo extends International
         }
     }
 
-    private function addToXmlShopHandlingInstruction(\DOMDocument $document, \DOMElement $typeElement, $prefix)
+    private function addToXmlShopHandlingInstruction(DOMDocument $document, DOMElement $typeElement, $prefix)
     {
         if ($this->getShopHandlingInstruction() !== null) {
             $typeElement->appendChild(
@@ -235,23 +243,24 @@ class AtIntlPugo extends International
     }
 
     /**
-     * @param  \SimpleXMLElement $xml
+     * @param SimpleXMLElement $xml
      *
      * @return AtIntlPugo
+     *
      * @throws BpostInvalidValueException
      * @throws BpostNotImplementedException
      */
-    public static function createFromXML(\SimpleXMLElement $xml)
+    public static function createFromXML(SimpleXMLElement $xml)
     {
         $self = new AtIntlPugo();
 
         if (isset($xml->atIntlPugo->product) && $xml->atIntlPugo->product != '') {
             $self->setProduct(
-                (string)$xml->atIntlPugo->product
+                (string) $xml->atIntlPugo->product
             );
         }
         if (isset($xml->atIntlPugo->options)) {
-            /** @var \SimpleXMLElement $optionData */
+            /** @var SimpleXMLElement $optionData */
             foreach ($xml->atIntlPugo->options as $optionData) {
                 $optionData = $optionData->children(Bpost::NS_V3_COMMON);
 
@@ -283,7 +292,7 @@ class AtIntlPugo extends International
         }
         if (isset($xml->atIntlPugo->parcelWeight) && $xml->atIntlPugo->parcelWeight != '') {
             $self->setParcelWeight(
-                (int)$xml->atIntlPugo->parcelWeight
+                (int) $xml->atIntlPugo->parcelWeight
             );
         }
         if (isset($xml->atIntlPugo->receiver) && $xml->atIntlPugo->receiver != '') {
@@ -295,16 +304,16 @@ class AtIntlPugo extends International
         }
         if (isset($xml->atIntlPugo->pugoId) && $xml->atIntlPugo->pugoId != '') {
             $self->setPugoId(
-                (string)$xml->atIntlPugo->pugoId
+                (string) $xml->atIntlPugo->pugoId
             );
         }
         if (isset($xml->atIntlPugo->pugoName) && $xml->atIntlPugo->pugoName != '') {
             $self->setPugoName(
-                (string)$xml->atIntlPugo->pugoName
+                (string) $xml->atIntlPugo->pugoName
             );
         }
         if (isset($xml->atIntlPugo->pugoAddress)) {
-            /** @var \SimpleXMLElement $pugoAddressData */
+            /** @var SimpleXMLElement $pugoAddressData */
             $pugoAddressData = $xml->atIntlPugo->pugoAddress->children(Bpost::NS_V3_COMMON);
             $self->setPugoAddress(
                 PugoAddress::createFromXML($pugoAddressData)
@@ -312,12 +321,12 @@ class AtIntlPugo extends International
         }
         if (isset($xml->atIntlPugo->requestedDeliveryDate) && $xml->atIntlPugo->requestedDeliveryDate != '') {
             $self->setRequestedDeliveryDate(
-                (string)$xml->atIntlPugo->requestedDeliveryDate
+                (string) $xml->atIntlPugo->requestedDeliveryDate
             );
         }
         if (isset($xml->atIntlPugo->shopHandlingInstruction) && $xml->atIntlPugo->shopHandlingInstruction != '') {
             $self->setShopHandlingInstruction(
-                (string)$xml->atIntlPugo->shopHandlingInstruction
+                (string) $xml->atIntlPugo->shopHandlingInstruction
             );
         }
 

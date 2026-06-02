@@ -4,9 +4,10 @@ namespace Tests\Bpost\HttpRequestBuilder;
 
 use Bpost\BpostApiClient\Bpost\HttpRequestBuilder\CreateLabelForOrderBuilder;
 use Bpost\BpostApiClient\Common\ValidatedValue\LabelFormat;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\TestCase;
 
-class CreateLabelForOrderTest extends PHPUnit_Framework_TestCase
+class CreateLabelForOrderTest extends TestCase
 {
     /**
      * @param array  $input
@@ -17,9 +18,8 @@ class CreateLabelForOrderTest extends PHPUnit_Framework_TestCase
      * @param bool   $isExpectXml
      *
      * @return void
-     *
-     * @dataProvider dataResults
      */
+    #[DataProvider('dataResults')]
     public function testResults(array $input, $url, $headers, $xml, $method, $isExpectXml)
     {
         $builder = new CreateLabelForOrderBuilder($input[0], $input[1], $input[2], $input[3]);
@@ -30,7 +30,7 @@ class CreateLabelForOrderTest extends PHPUnit_Framework_TestCase
         $this->assertSame($headers, $builder->getHeaders());
     }
 
-    public function dataResults()
+    public static function dataResults()
     {
         $labelA4 = new LabelFormat(LabelFormat::FORMAT_A4);
         $labelA6 = new LabelFormat(LabelFormat::FORMAT_A6);
@@ -39,7 +39,7 @@ class CreateLabelForOrderTest extends PHPUnit_Framework_TestCase
             array(
                 'input' => array('123', $labelA4, false, false),
                 'url' => '/orders/123/labels/A4',
-                'headers' => $this->getHeadersForImage(),
+                'headers' => self::getHeadersForImage(),
                 'xml' => null,
                 'method' => 'GET',
                 'isExpectXml' => true,
@@ -47,7 +47,7 @@ class CreateLabelForOrderTest extends PHPUnit_Framework_TestCase
             array(
                 'input' => array('123', $labelA6, false, false),
                 'url' => '/orders/123/labels/A6',
-                'headers' => $this->getHeadersForImage(),
+                'headers' => self::getHeadersForImage(),
                 'xml' => null,
                 'method' => 'GET',
                 'isExpectXml' => true,
@@ -55,7 +55,7 @@ class CreateLabelForOrderTest extends PHPUnit_Framework_TestCase
             array(
                 'input' => array('123', $labelA4, true, false),
                 'url' => '/orders/123/labels/A4',
-                'headers' => $this->getHeadersForPdf(),
+                'headers' => self::getHeadersForPdf(),
                 'xml' => null,
                 'method' => 'GET',
                 'isExpectXml' => true,
@@ -63,7 +63,7 @@ class CreateLabelForOrderTest extends PHPUnit_Framework_TestCase
             array(
                 'input' => array('123', $labelA6, true, false),
                 'url' => '/orders/123/labels/A6',
-                'headers' => $this->getHeadersForPdf(),
+                'headers' => self::getHeadersForPdf(),
                 'xml' => null,
                 'method' => 'GET',
                 'isExpectXml' => true,
@@ -71,7 +71,7 @@ class CreateLabelForOrderTest extends PHPUnit_Framework_TestCase
             array(
                 'input' => array('123', $labelA4, false, true),
                 'url' => '/orders/123/labels/A4/withReturnLabels',
-                'headers' => $this->getHeadersForImage(),
+                'headers' => self::getHeadersForImage(),
                 'xml' => null,
                 'method' => 'GET',
                 'isExpectXml' => true,
@@ -79,7 +79,7 @@ class CreateLabelForOrderTest extends PHPUnit_Framework_TestCase
             array(
                 'input' => array('123', $labelA6, false, true),
                 'url' => '/orders/123/labels/A6/withReturnLabels',
-                'headers' => $this->getHeadersForImage(),
+                'headers' => self::getHeadersForImage(),
                 'xml' => null,
                 'method' => 'GET',
                 'isExpectXml' => true,
@@ -87,7 +87,7 @@ class CreateLabelForOrderTest extends PHPUnit_Framework_TestCase
             array(
                 'input' => array('123', $labelA4, true, true),
                 'url' => '/orders/123/labels/A4/withReturnLabels',
-                'headers' => $this->getHeadersForPdf(),
+                'headers' => self::getHeadersForPdf(),
                 'xml' => null,
                 'method' => 'GET',
                 'isExpectXml' => true,
@@ -95,7 +95,7 @@ class CreateLabelForOrderTest extends PHPUnit_Framework_TestCase
             array(
                 'input' => array('123', $labelA6, true, true),
                 'url' => '/orders/123/labels/A6/withReturnLabels',
-                'headers' => $this->getHeadersForPdf(),
+                'headers' => self::getHeadersForPdf(),
                 'xml' => null,
                 'method' => 'GET',
                 'isExpectXml' => true,
@@ -103,7 +103,7 @@ class CreateLabelForOrderTest extends PHPUnit_Framework_TestCase
         );
     }
 
-    private function getHeadersForPdf()
+    private static function getHeadersForPdf()
     {
         return array(
             'Accept: application/vnd.bpost.shm-label-pdf-v3.4+XML',
@@ -111,7 +111,7 @@ class CreateLabelForOrderTest extends PHPUnit_Framework_TestCase
         );
     }
 
-    private function getHeadersForImage()
+    private static function getHeadersForImage()
     {
         return array(
             'Accept: application/vnd.bpost.shm-label-image-v3.4+XML',

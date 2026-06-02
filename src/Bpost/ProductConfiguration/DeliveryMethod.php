@@ -9,14 +9,14 @@ use SimpleXMLElement;
  */
 class DeliveryMethod
 {
-    const DELIVERY_METHOD_NAME_HOME_OR_OFFICE = 'home or office';
-    const DELIVERY_METHOD_NAME_PICKUP_POINT = 'pick-up point';
-    const DELIVERY_METHOD_NAME_PARCEL_LOCKER = 'parcel locker';
-    const DELIVERY_METHOD_NAME_CLICK_AND_COLLECT = 'Click & Collect';
+    public const DELIVERY_METHOD_NAME_HOME_OR_OFFICE = 'home or office';
+    public const DELIVERY_METHOD_NAME_PICKUP_POINT = 'pick-up point';
+    public const DELIVERY_METHOD_NAME_PARCEL_LOCKER = 'parcel locker';
+    public const DELIVERY_METHOD_NAME_CLICK_AND_COLLECT = 'Click & Collect';
 
-    const DELIVERY_METHOD_VISIBILITY_VISIBLE = 'VISIBLE';
-    const DELIVERY_METHOD_VISIBILITY_GREYED_OUT = 'GREYED_OUT';
-    const DELIVERY_METHOD_VISIBILITY_INVISIBLE = 'INVISIBLE';
+    public const DELIVERY_METHOD_VISIBILITY_VISIBLE = 'VISIBLE';
+    public const DELIVERY_METHOD_VISIBILITY_GREYED_OUT = 'GREYED_OUT';
+    public const DELIVERY_METHOD_VISIBILITY_INVISIBLE = 'INVISIBLE';
 
     /** @var string */
     private $name;

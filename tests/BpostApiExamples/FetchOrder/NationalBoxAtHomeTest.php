@@ -5,11 +5,10 @@ namespace Tests\BpostApiExamples\FetchOrder;
 use Bpost\BpostApiClient\Bpost\Order;
 use Bpost\BpostApiClient\Bpost\Order\Box;
 use Bpost\BpostApiClient\Bpost\ProductConfiguration\Product;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
-class NationalBoxAtHomeTest extends PHPUnit_Framework_TestCase
+class NationalBoxAtHomeTest extends TestCase
 {
-
     private function getXmlFromBpost()
     {
         return <<<XML
@@ -115,8 +114,7 @@ XML;
         $this->assertSame('Bruxelles', $receiver->getAddress()->getLocality());
         $this->assertSame('BE', $receiver->getAddress()->getCountryCode());
 
-
-//        var_dump($nationalBox->getOptions());
+        //        var_dump($nationalBox->getOptions());
         $this->assertCount(2, $nationalBox->getOptions());
         $options = $nationalBox->getOptions();
 

@@ -4,9 +4,10 @@ namespace Tests\Bpost\HttpRequestBuilder;
 
 use Bpost\BpostApiClient\Bpost\HttpRequestBuilder\ModifyOrderBuilder;
 use Bpost\BpostApiClient\Exception\BpostLogicException\BpostInvalidValueException;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\TestCase;
 
-class ModifyOrderTest extends PHPUnit_Framework_TestCase
+class ModifyOrderTest extends TestCase
 {
     /**
      * @param array  $input
@@ -17,9 +18,8 @@ class ModifyOrderTest extends PHPUnit_Framework_TestCase
      * @param bool   $isExpectXml
      *
      * @throws BpostInvalidValueException
-     *
-     * @dataProvider dataResults
      */
+    #[DataProvider('dataResults')]
     public function testResults(array $input, $url, $xml, $headers, $method, $isExpectXml)
     {
         $builder = new ModifyOrderBuilder($input[0], $input[1]);
@@ -37,7 +37,7 @@ class ModifyOrderTest extends PHPUnit_Framework_TestCase
         new ModifyOrderBuilder('123', 'maybe');
     }
 
-    public function dataResults()
+    public static function dataResults()
     {
         return array(
             array(

@@ -12,7 +12,7 @@ use SimpleXMLElement;
  */
 class Receiver extends Customer
 {
-    const TAG_NAME = 'receiver';
+    public const TAG_NAME = 'receiver';
 
     /**
      * @param SimpleXMLElement $xml

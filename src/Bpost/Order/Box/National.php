@@ -160,7 +160,7 @@ abstract class National extends ComplexAttribute implements IBox
      *
      * @return DomElement
      */
-    public function toXML(DOMDocument $document, $prefix = null, $type = null)
+    public function toXML(DomDocument $document, $prefix = null, $type = null)
     {
         $typeElement = $document->createElement($type);
 
@@ -223,7 +223,7 @@ abstract class National extends ComplexAttribute implements IBox
      * @throws BpostException
      * @throws BpostXmlInvalidItemException
      */
-    public static function createFromXML(SimpleXMLElement $nationalXml, National $self = null)
+    public static function createFromXML(SimpleXMLElement $nationalXml, ?National $self = null)
     {
         if ($self === null) {
             throw new BpostException('Set an instance of National');

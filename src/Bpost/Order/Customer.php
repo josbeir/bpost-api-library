@@ -15,7 +15,7 @@ use SimpleXMLElement;
  */
 class Customer
 {
-    const TAG_NAME = 'customer';
+    public const TAG_NAME = 'customer';
 
     /**
      * @var string
@@ -43,7 +43,7 @@ class Customer
     private $phoneNumber;
 
     /**
-     * @param \Bpost\BpostApiClient\Bpost\Order\Address $address
+     * @param Address $address
      */
     public function setAddress($address)
     {
@@ -51,7 +51,7 @@ class Customer
     }
 
     /**
-     * @return \Bpost\BpostApiClient\Bpost\Order\Address
+     * @return Address
      */
     public function getAddress()
     {
@@ -142,7 +142,7 @@ class Customer
      *
      * @return DomElement
      */
-    public function toXML(DOMDocument $document, $prefix = null)
+    public function toXML(DomDocument $document, $prefix = null)
     {
         $customer = $document->createElement(XmlHelper::getPrefixedTagName(static::TAG_NAME, $prefix));
 

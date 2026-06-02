@@ -16,12 +16,12 @@ use SimpleXMLElement;
  */
 class Customer
 {
-    const CUSTOMER_PREFERRED_LANGUAGE_NL = 'nl-BE';
-    const CUSTOMER_PREFERRED_LANGUAGE_FR = 'fr-BE';
-    const CUSTOMER_PREFERRED_LANGUAGE_EN = 'en-US';
+    public const CUSTOMER_PREFERRED_LANGUAGE_NL = 'nl-BE';
+    public const CUSTOMER_PREFERRED_LANGUAGE_FR = 'fr-BE';
+    public const CUSTOMER_PREFERRED_LANGUAGE_EN = 'en-US';
 
-    const CUSTOMER_TITLE_MR = 'Mr.';
-    const CUSTOMER_TITLE_MS = 'Ms.';
+    public const CUSTOMER_TITLE_MR = 'Mr.';
+    public const CUSTOMER_TITLE_MS = 'Ms.';
 
     /**
      * @var bool

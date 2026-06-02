@@ -11,7 +11,7 @@ use SimpleXMLElement;
  */
 class ParcelsDepotAddress extends Address
 {
-    const TAG_NAME = 'parcelsDepotAddress';
+    public const TAG_NAME = 'parcelsDepotAddress';
 
     /**
      * @param SimpleXMLElement $xml

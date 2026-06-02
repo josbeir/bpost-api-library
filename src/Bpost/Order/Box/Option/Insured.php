@@ -22,27 +22,27 @@ use SimpleXMLElement;
  */
 class Insured extends Option
 {
-    const INSURANCE_TYPE_BASIC_INSURANCE = 'basicInsurance';
-    const INSURANCE_TYPE_ADDITIONAL_INSURANCE = 'additionalInsurance';
+    public const INSURANCE_TYPE_BASIC_INSURANCE = 'basicInsurance';
+    public const INSURANCE_TYPE_ADDITIONAL_INSURANCE = 'additionalInsurance';
 
-    const INSURANCE_AMOUNT_UP_TO_2500_EUROS = 2;
-    const INSURANCE_AMOUNT_UP_TO_5000_EUROS = 3;
+    public const INSURANCE_AMOUNT_UP_TO_2500_EUROS = 2;
+    public const INSURANCE_AMOUNT_UP_TO_5000_EUROS = 3;
     /** @deprecated From SHM API v3.3.24: insurance is limited to 5000€ */
-    const INSURANCE_AMOUNT_UP_TO_7500_EUROS = 4;
+    public const INSURANCE_AMOUNT_UP_TO_7500_EUROS = 4;
     /** @deprecated From SHM API v3.3.24: insurance is limited to 5000€ */
-    const INSURANCE_AMOUNT_UP_TO_10000_EUROS = 5;
+    public const INSURANCE_AMOUNT_UP_TO_10000_EUROS = 5;
     /** @deprecated From SHM API v3.3.24: insurance is limited to 5000€ */
-    const INSURANCE_AMOUNT_UP_TO_12500_EUROS = 6;
+    public const INSURANCE_AMOUNT_UP_TO_12500_EUROS = 6;
     /** @deprecated From SHM API v3.3.24: insurance is limited to 5000€ */
-    const INSURANCE_AMOUNT_UP_TO_15000_EUROS = 7;
+    public const INSURANCE_AMOUNT_UP_TO_15000_EUROS = 7;
     /** @deprecated From SHM API v3.3.24: insurance is limited to 5000€ */
-    const INSURANCE_AMOUNT_UP_TO_17500_EUROS = 8;
+    public const INSURANCE_AMOUNT_UP_TO_17500_EUROS = 8;
     /** @deprecated From SHM API v3.3.24: insurance is limited to 5000€ */
-    const INSURANCE_AMOUNT_UP_TO_20000_EUROS = 9;
+    public const INSURANCE_AMOUNT_UP_TO_20000_EUROS = 9;
     /** @deprecated From SHM API v3.3.24: insurance is limited to 5000€ */
-    const INSURANCE_AMOUNT_UP_TO_22500_EUROS = 10;
+    public const INSURANCE_AMOUNT_UP_TO_22500_EUROS = 10;
     /** @deprecated From SHM API v3.3.24: insurance is limited to 5000€ */
-    const INSURANCE_AMOUNT_UP_TO_25000_EUROS = 11;
+    public const INSURANCE_AMOUNT_UP_TO_25000_EUROS = 11;
 
     /**
      * @var string
@@ -143,7 +143,7 @@ class Insured extends Option
      *
      * @throws DOMException
      */
-    public function toXML(DOMDocument $document, $prefix = 'common')
+    public function toXML(DomDocument $document, $prefix = 'common')
     {
         $insured = $document->createElement(XmlHelper::getPrefixedTagName('insured', $prefix));
 

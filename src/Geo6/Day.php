@@ -17,21 +17,21 @@ use SimpleXMLElement;
  */
 class Day
 {
-    const DAY_INDEX_MONDAY = 1;
-    const DAY_INDEX_TUESDAY = 2;
-    const DAY_INDEX_WEDNESDAY = 3;
-    const DAY_INDEX_THURSDAY = 4;
-    const DAY_INDEX_FRIDAY = 5;
-    const DAY_INDEX_SATURDAY = 6;
-    const DAY_INDEX_SUNDAY = 7;
+    public const DAY_INDEX_MONDAY = 1;
+    public const DAY_INDEX_TUESDAY = 2;
+    public const DAY_INDEX_WEDNESDAY = 3;
+    public const DAY_INDEX_THURSDAY = 4;
+    public const DAY_INDEX_FRIDAY = 5;
+    public const DAY_INDEX_SATURDAY = 6;
+    public const DAY_INDEX_SUNDAY = 7;
 
-    const DAY_NAME_MONDAY = 'Monday';
-    const DAY_NAME_TUESDAY = 'Tuesday';
-    const DAY_NAME_WEDNESDAY = 'Wednesday';
-    const DAY_NAME_THURSDAY = 'Thursday';
-    const DAY_NAME_FRIDAY = 'Friday';
-    const DAY_NAME_SATURDAY = 'Saturday';
-    const DAY_NAME_SUNDAY = 'Sunday';
+    public const DAY_NAME_MONDAY = 'Monday';
+    public const DAY_NAME_TUESDAY = 'Tuesday';
+    public const DAY_NAME_WEDNESDAY = 'Wednesday';
+    public const DAY_NAME_THURSDAY = 'Thursday';
+    public const DAY_NAME_FRIDAY = 'Friday';
+    public const DAY_NAME_SATURDAY = 'Saturday';
+    public const DAY_NAME_SUNDAY = 'Sunday';
 
     private static $dayMap = array(
         self::DAY_NAME_MONDAY => self::DAY_INDEX_MONDAY,
@@ -125,7 +125,7 @@ class Day
      */
     public function getDayIndex()
     {
-        $day = ucfirst(strtolower($this->getDay()));
+        $day = ucfirst(strtolower((string) $this->getDay()));
 
         if (isset(self::$dayMap[$day])) {
             return self::$dayMap[$day];

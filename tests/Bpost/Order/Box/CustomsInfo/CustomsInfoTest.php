@@ -7,9 +7,9 @@ use Bpost\BpostApiClient\Exception\BpostLogicException\BpostInvalidLengthExcepti
 use Bpost\BpostApiClient\Exception\BpostLogicException\BpostInvalidValueException;
 use DOMDocument;
 use Exception;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase;
 
-class CustomsInfoTest extends PHPUnit_Framework_TestCase
+class CustomsInfoTest extends TestCase
 {
     /**
      * Create a generic DOM Document
@@ -119,9 +119,11 @@ class CustomsInfoTest extends PHPUnit_Framework_TestCase
         $document = self::createDomDocument();
         $customsInfo = $document->createElement('CustomsInfo');
         foreach ($data as $key => $value) {
-            $customsInfo->appendChild(
-                $document->createElement($key, $value)
-            );
+            if ($value !== null) {
+                $customsInfo->appendChild(
+                    $document->createElement($key, $value)
+                );
+            }
         }
         $document->appendChild($customsInfo);
 

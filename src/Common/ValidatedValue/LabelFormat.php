@@ -10,8 +10,8 @@ use Bpost\BpostApiClient\Exception\BpostLogicException\BpostInvalidValueExceptio
  */
 class LabelFormat extends ValidatedValue
 {
-    const FORMAT_A4 = 'A4';
-    const FORMAT_A6 = 'A6';
+    public const FORMAT_A4 = 'A4';
+    public const FORMAT_A6 = 'A6';
 
     /**
      * @param string $value

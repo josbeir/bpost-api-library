@@ -22,20 +22,20 @@ use SimpleXMLElement;
  */
 class CustomsInfo
 {
-    const CUSTOM_INFO_PARCEL_RETURN_INSTRUCTION_RTA = 'RTA';
-    const CUSTOM_INFO_PARCEL_RETURN_INSTRUCTION_RTS = 'RTS';
-    const CUSTOM_INFO_PARCEL_RETURN_INSTRUCTION_ABANDONED = 'ABANDONED';
+    public const CUSTOM_INFO_PARCEL_RETURN_INSTRUCTION_RTA = 'RTA';
+    public const CUSTOM_INFO_PARCEL_RETURN_INSTRUCTION_RTS = 'RTS';
+    public const CUSTOM_INFO_PARCEL_RETURN_INSTRUCTION_ABANDONED = 'ABANDONED';
 
-    const CUSTOM_INFO_SHIPMENT_TYPE_SAMPLE = 'SAMPLE';
-    const CUSTOM_INFO_SHIPMENT_TYPE_GIFT = 'GIFT';
-    const CUSTOM_INFO_SHIPMENT_TYPE_GOODS = 'GOODS';
-    const CUSTOM_INFO_SHIPMENT_TYPE_DOCUMENTS = 'DOCUMENTS';
-    const CUSTOM_INFO_SHIPMENT_TYPE_OTHER = 'OTHER';
+    public const CUSTOM_INFO_SHIPMENT_TYPE_SAMPLE = 'SAMPLE';
+    public const CUSTOM_INFO_SHIPMENT_TYPE_GIFT = 'GIFT';
+    public const CUSTOM_INFO_SHIPMENT_TYPE_GOODS = 'GOODS';
+    public const CUSTOM_INFO_SHIPMENT_TYPE_DOCUMENTS = 'DOCUMENTS';
+    public const CUSTOM_INFO_SHIPMENT_TYPE_OTHER = 'OTHER';
 
-    const CUSTOM_INFO_CURRENCY_EUR = 'EUR';
-    const CUSTOM_INFO_CURRENCY_GBP = 'GBP';
-    const CUSTOM_INFO_CURRENCY_USD = 'USD';
-    const CUSTOM_INFO_CURRENCY_CNY = 'CNY';
+    public const CUSTOM_INFO_CURRENCY_EUR = 'EUR';
+    public const CUSTOM_INFO_CURRENCY_GBP = 'GBP';
+    public const CUSTOM_INFO_CURRENCY_USD = 'USD';
+    public const CUSTOM_INFO_CURRENCY_CNY = 'CNY';
 
     /**
      * @var int
@@ -266,10 +266,10 @@ class CustomsInfo
     /**
      * Return the object as an array for usage in the XML
      *
-     * @param DomDocument $document
+     * @param DOMDocument $document
      * @param string      $prefix
      *
-     * @return DomElement
+     * @return DOMElement
      *
      * @throws DOMException
      */

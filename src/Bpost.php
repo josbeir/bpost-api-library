@@ -40,29 +40,29 @@ use SimpleXMLElement;
  */
 class Bpost
 {
-    const LABEL_FORMAT_A4 = 'A4';
-    const LABEL_FORMAT_A6 = 'A6';
+    public const LABEL_FORMAT_A4 = 'A4';
+    public const LABEL_FORMAT_A6 = 'A6';
 
-    const NS_V3_GLOBAL = 'http://schema.post.be/shm/deepintegration/v3/';
-    const NS_V3_COMMON = 'http://schema.post.be/shm/deepintegration/v3/common';
-    const NS_V3_NATIONAL = 'http://schema.post.be/shm/deepintegration/v3/national';
-    const NS_V3_INTERNATIONAL = 'http://schema.post.be/shm/deepintegration/v3/international';
-    const NS_V5_GLOBAL = 'http://schema.post.be/shm/deepintegration/v5/';
-    const NS_V5_COMMON = 'http://schema.post.be/shm/deepintegration/v5/common';
-    const NS_V5_NATIONAL = 'http://schema.post.be/shm/deepintegration/v5/national';
-    const NS_V5_INTERNATIONAL = 'http://schema.post.be/shm/deepintegration/v5/international';
+    public const NS_V3_GLOBAL = 'http://schema.post.be/shm/deepintegration/v3/';
+    public const NS_V3_COMMON = 'http://schema.post.be/shm/deepintegration/v3/common';
+    public const NS_V3_NATIONAL = 'http://schema.post.be/shm/deepintegration/v3/national';
+    public const NS_V3_INTERNATIONAL = 'http://schema.post.be/shm/deepintegration/v3/international';
+    public const NS_V5_GLOBAL = 'http://schema.post.be/shm/deepintegration/v5/';
+    public const NS_V5_COMMON = 'http://schema.post.be/shm/deepintegration/v5/common';
+    public const NS_V5_NATIONAL = 'http://schema.post.be/shm/deepintegration/v5/national';
+    public const NS_V5_INTERNATIONAL = 'http://schema.post.be/shm/deepintegration/v5/international';
 
     // URL for the api
-    const API_URL = 'https://shm-rest.bpost.cloud/services/shm';
+    public const API_URL = 'https://shm-rest.bpost.cloud/services/shm';
 
     // current version
-    const VERSION = '3.7.0';
+    public const VERSION = '3.7.0';
 
     /** Min weight, in grams, for a shipping */
-    const MIN_WEIGHT = 0;
+    public const MIN_WEIGHT = 0;
 
     /** Max weight, in grams, for a shipping */
-    const MAX_WEIGHT = 30000;
+    public const MAX_WEIGHT = 30000;
 
     /** @var ApiCaller */
     private $apiCaller;
@@ -284,8 +284,8 @@ class Bpost
 
             $message = '';
             if (
-                ($contentType !== null && substr_count($contentType, 'text/plain') > 0) ||
-                in_array($httpCode, array(400, 404))
+                ($contentType !== null && substr_count($contentType, 'text/plain') > 0)
+                || in_array($httpCode, array(400, 404))
             ) {
                 $message = $response;
             }
@@ -513,7 +513,7 @@ class Bpost
         $reference,
         $format = self::LABEL_FORMAT_A6,
         $withReturnLabels = false,
-        $asPdf = false
+        $asPdf = false,
     ) {
         $builder = new CreateLabelForOrderBuilder($reference, new LabelFormat($format), $asPdf, $withReturnLabels);
 
@@ -541,7 +541,7 @@ class Bpost
         $barcode,
         $format = self::LABEL_FORMAT_A6,
         $withReturnLabels = false,
-        $asPdf = false
+        $asPdf = false,
     ) {
         $builder = new CreateLabelForBoxBuilder($barcode, new LabelFormat($format), $asPdf, $withReturnLabels);
 
@@ -574,7 +574,7 @@ class Bpost
         $format = LabelFormat::FORMAT_A6,
         $withReturnLabels = false,
         $asPdf = false,
-        $forcePrinting = false
+        $forcePrinting = false,
     ) {
         $builder = new CreateLabelInBulkForOrdersBuilder(
             $references,

@@ -3,9 +3,10 @@
 namespace Tests\Bpost\HttpRequestBuilder;
 
 use Bpost\BpostApiClient\Bpost\HttpRequestBuilder\FetchOrderBuilder;
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\Attributes\DataProvider;
+use PHPUnit\Framework\TestCase;
 
-class FetchOrderTest extends PHPUnit_Framework_TestCase
+class FetchOrderTest extends TestCase
 {
     /**
      * @param array  $input
@@ -13,12 +14,10 @@ class FetchOrderTest extends PHPUnit_Framework_TestCase
      * @param string $xml
      * @param string $method
      * @param bool   $isExpectXml
-     * @param array  $headers
      *
      * @return void
-     *
-     * @dataProvider dataResults
      */
+    #[DataProvider('dataResults')]
     public function testResults(array $input, $url, $xml, $headers, $method, $isExpectXml)
     {
         $builder = new FetchOrderBuilder($input[0]);
@@ -30,7 +29,7 @@ class FetchOrderTest extends PHPUnit_Framework_TestCase
         $this->assertSame($headers, $builder->getHeaders());
     }
 
-    public function dataResults()
+    public static function dataResults()
     {
         return array(
             array(

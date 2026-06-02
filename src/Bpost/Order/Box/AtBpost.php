@@ -4,7 +4,6 @@ namespace Bpost\BpostApiClient\Bpost\Order\Box;
 
 use Bpost\BpostApiClient\Bpost;
 use Bpost\BpostApiClient\Bpost\Order\Box\National\ShopHandlingInstruction;
-use Bpost\BpostApiClient\Bpost\Order\Box\Option\Messaging;
 use Bpost\BpostApiClient\Bpost\Order\PugoAddress;
 use Bpost\BpostApiClient\Bpost\ProductConfiguration\Product;
 use Bpost\BpostApiClient\Common\XmlHelper;
@@ -36,7 +35,7 @@ class AtBpost extends National
     /** @var string */
     private $pugoName;
 
-    /** @var \Bpost\BpostApiClient\Bpost\Order\PugoAddress */
+    /** @var PugoAddress */
     private $pugoAddress;
 
     /** @var string */
@@ -76,7 +75,7 @@ class AtBpost extends National
     }
 
     /**
-     * @param \Bpost\BpostApiClient\Bpost\Order\PugoAddress $pugoAddress
+     * @param PugoAddress $pugoAddress
      */
     public function setPugoAddress($pugoAddress)
     {
@@ -84,7 +83,7 @@ class AtBpost extends National
     }
 
     /**
-     * @return \Bpost\BpostApiClient\Bpost\Order\PugoAddress
+     * @return PugoAddress
      */
     public function getPugoAddress()
     {
@@ -194,11 +193,11 @@ class AtBpost extends National
     /**
      * Return the object as an array for usage in the XML
      *
-     * @param DomDocument $document
+     * @param DOMDocument $document
      * @param string      $prefix
      * @param string      $type
      *
-     * @return DomElement
+     * @return DOMElement
      */
     public function toXML(DOMDocument $document, $prefix = null, $type = null)
     {
@@ -269,9 +268,9 @@ class AtBpost extends National
      * @throws BpostInvalidValueException
      * @throws BpostNotImplementedException
      * @throws \Bpost\BpostApiClient\Exception\BpostLogicException\BpostInvalidLengthException
-     * @throws \Bpost\BpostApiClient\Exception\XmlException\BpostXmlInvalidItemException
+     * @throws BpostXmlInvalidItemException
      */
-    public static function createFromXML(SimpleXMLElement $xml, National $self = null)
+    public static function createFromXML(SimpleXMLElement $xml, ?National $self = null)
     {
         if ($self === null) {
             $self = new self();

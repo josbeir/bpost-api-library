@@ -19,13 +19,13 @@ use DomElement;
  */
 class Day
 {
-    const DAY_MONDAY = 'Monday';
-    const DAY_TUESDAY = 'Tuesday';
-    const DAY_WEDNESDAY = 'Wednesday';
-    const DAY_THURSDAY = 'Thursday';
-    const DAY_FRIDAY = 'Friday';
-    const DAY_SATURDAY = 'Saturday';
-    const DAY_SUNDAY = 'Sunday';
+    public const DAY_MONDAY = 'Monday';
+    public const DAY_TUESDAY = 'Tuesday';
+    public const DAY_WEDNESDAY = 'Wednesday';
+    public const DAY_THURSDAY = 'Thursday';
+    public const DAY_FRIDAY = 'Friday';
+    public const DAY_SATURDAY = 'Saturday';
+    public const DAY_SUNDAY = 'Sunday';
 
     /**
      * @var string
@@ -111,7 +111,7 @@ class Day
      *
      * @return DomElement
      */
-    public function toXML(DOMDocument $document, $prefix = null)
+    public function toXML(DomDocument $document, $prefix = null)
     {
         return $document->createElement(
             XmlHelper::getPrefixedTagName($this->getDay(), $prefix),

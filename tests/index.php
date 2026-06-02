@@ -148,44 +148,44 @@ $order->addBox($box);
 
 try {
     // Bpost webservices
-//    $response = $bpost->createOrReplaceOrder($order);
-//    $response = $bpost->modifyOrderStatus($orderId, 'OPEN');
-//    $response = $bpost->fetchOrder($orderId);
-//    $response = $bpost->createLabelForOrder('1398779096', 'A4');
-//    $response = $bpost->createLabelForBox('323212345659900357664050', 'A4');
-//    $response = $bpost->createLabelInBulkForOrders(
-//        array('1398779096', '1398862819'), 'A4'
-//    );
+    //    $response = $bpost->createOrReplaceOrder($order);
+    //    $response = $bpost->modifyOrderStatus($orderId, 'OPEN');
+    //    $response = $bpost->fetchOrder($orderId);
+    //    $response = $bpost->createLabelForOrder('1398779096', 'A4');
+    //    $response = $bpost->createLabelForBox('323212345659900357664050', 'A4');
+    //    $response = $bpost->createLabelInBulkForOrders(
+    //        array('1398779096', '1398862819'), 'A4'
+    //    );
 
     // GEO6 webservices
-//    $geo6 = new Geo6(GEO6_PARTNER, GEO6_APP_ID);
-//    $response = $geo6->getNearestServicePoint('Afrikalaan', '289', '9000', 'nl', 7, 100);
-//    $response = $geo6->getServicePointDetails('220000', 'nl', '1');
-//    $response = $geo6->getServicePointPage('220000', 'nl', '1');
+    //    $geo6 = new Geo6(GEO6_PARTNER, GEO6_APP_ID);
+    //    $response = $geo6->getNearestServicePoint('Afrikalaan', '289', '9000', 'nl', 7, 100);
+    //    $response = $geo6->getServicePointDetails('220000', 'nl', '1');
+    //    $response = $geo6->getServicePointPage('220000', 'nl', '1');
 
     // Bpack 24/7 webservices
-//    $bpack247 = new Bpack247(BPACK_EMAIL, BPACK_PASSPHRASE);
-//    $response = $bpack247->getMember('344337728');
+    //    $bpack247 = new Bpack247(BPACK_EMAIL, BPACK_PASSPHRASE);
+    //    $response = $bpack247->getMember('344337728');
 
-//    $customer = new Bpack247\Customer();
-//    $customer->setFirstName('Tijs');
-//    $customer->setLastName('Verkoyen');
-//    $customer->setEmail('bpost@verkoyen.eu');
-//    $customer->setStreet('Afrikalaan');
-//    $customer->setNumber('289');
-//    $customer->setMobileNumber('123456');
-//    $customer->setPostalCode('9000');
-//    $customer->setPreferredLanguage('nl-BE');
-//    $customer->setTitle('Mr.');
-//
-//    $response = $bpack247->createMember($customer);
+    //    $customer = new Bpack247\Customer();
+    //    $customer->setFirstName('Tijs');
+    //    $customer->setLastName('Verkoyen');
+    //    $customer->setEmail('bpost@verkoyen.eu');
+    //    $customer->setStreet('Afrikalaan');
+    //    $customer->setNumber('289');
+    //    $customer->setMobileNumber('123456');
+    //    $customer->setPostalCode('9000');
+    //    $customer->setPreferredLanguage('nl-BE');
+    //    $customer->setTitle('Mr.');
+    //
+    //    $response = $bpack247->createMember($customer);
 
     // Form handler
-//    $formHandler = new FormHandler(ACCOUNT_ID, PASSPHRASE);
-//    $formHandler->setParameter('action', 'START');
-//    $formHandler->setParameter('orderReference', $order->getReference());
-//    $formHandler->setParameter('customerCountry', $sender->getAddress()->getCountryCode());
-//    $response = $formHandler->getParameters(true);
+    //    $formHandler = new FormHandler(ACCOUNT_ID, PASSPHRASE);
+    //    $formHandler->setParameter('action', 'START');
+    //    $formHandler->setParameter('orderReference', $order->getReference());
+    //    $formHandler->setParameter('customerCountry', $sender->getAddress()->getCountryCode());
+    //    $response = $formHandler->getParameters(true);
 } catch (Exception $e) {
     var_dump($e);
 }

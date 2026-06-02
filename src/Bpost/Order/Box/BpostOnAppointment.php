@@ -56,11 +56,11 @@ class BpostOnAppointment extends National
     /**
      * Return the object as an array for usage in the XML
      *
-     * @param DomDocument $document
+     * @param DOMDocument $document
      * @param string      $prefix
      * @param string      $type
      *
-     * @return DomElement
+     * @return DOMElement
      */
     public function toXML(DOMDocument $document, $prefix = null, $type = null)
     {
@@ -113,7 +113,7 @@ class BpostOnAppointment extends National
      *
      * @throws BpostXmlInvalidItemException
      */
-    public static function createFromXML(SimpleXMLElement $xml, National $self = null)
+    public static function createFromXML(SimpleXMLElement $xml, ?National $self = null)
     {
         $self = new self();
 

@@ -89,5 +89,5 @@ abstract class ValidatedValue
     /**
      * @throws BpostLogicException
      */
-    public abstract function validate();
+    abstract public function validate();
 }
