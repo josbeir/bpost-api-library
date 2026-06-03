@@ -4,8 +4,8 @@ namespace Bpost\BpostApiClient\Bpost\Order;
 
 use Bpost\BpostApiClient\Common\XmlHelper;
 use Bpost\BpostApiClient\Exception\BpostLogicException\BpostInvalidLengthException;
-use DomDocument;
-use DomElement;
+use DOMDocument;
+use DOMElement;
 use SimpleXMLElement;
 
 /**
@@ -137,12 +137,12 @@ class Customer
     /**
      * Return the object as an array for usage in the XML
      *
-     * @param DomDocument $document
+     * @param DOMDocument $document
      * @param string      $prefix
      *
-     * @return DomElement
+     * @return DOMElement
      */
-    public function toXML(DomDocument $document, $prefix = null)
+    public function toXML(DOMDocument $document, $prefix = null)
     {
         $customer = $document->createElement(XmlHelper::getPrefixedTagName(static::TAG_NAME, $prefix));
 

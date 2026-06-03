@@ -13,8 +13,8 @@ use Bpost\BpostApiClient\Common\XmlHelper;
 use Bpost\BpostApiClient\Exception\BpostLogicException\BpostInvalidLengthException;
 use Bpost\BpostApiClient\Exception\BpostLogicException\BpostInvalidValueException;
 use Bpost\BpostApiClient\Exception\BpostNotImplementedException;
-use DomDocument;
-use DomElement;
+use DOMDocument;
+use DOMElement;
 use DOMException;
 use SimpleXMLElement;
 
@@ -211,14 +211,14 @@ class International implements IBox
     /**
      * Return the object as an array for usage in the XML
      *
-     * @param DomDocument $document
+     * @param DOMDocument $document
      * @param string      $prefix
      *
-     * @return DomElement
+     * @return DOMElement
      *
      * @throws DOMException
      */
-    public function toXML(DomDocument $document, $prefix = null)
+    public function toXML(DOMDocument $document, $prefix = null)
     {
         $internationalBox = $document->createElement(XmlHelper::getPrefixedTagName('internationalBox', $prefix));
         $prefix = 'international';

@@ -3,8 +3,8 @@
 namespace Bpost\BpostApiClient\Bpost\Order\Box\Option;
 
 use Bpost\BpostApiClient\Common\XmlHelper;
-use DomDocument;
-use DomElement;
+use DOMDocument;
+use DOMElement;
 
 /**
  * bPost AutomaticSecondPresentation class
@@ -21,12 +21,12 @@ class AutomaticSecondPresentation extends Option
     /**
      * Return the object as an array for usage in the XML
      *
-     * @param DomDocument $document
+     * @param DOMDocument $document
      * @param string      $prefix
      *
-     * @return DomElement
+     * @return DOMElement
      */
-    public function toXML(DomDocument $document, $prefix = 'common')
+    public function toXML(DOMDocument $document, $prefix = 'common')
     {
         return $document->createElement(XmlHelper::getPrefixedTagName('automaticSecondPresentation', $prefix));
     }

@@ -4,7 +4,7 @@ namespace Bpost\BpostApiClient\Bpost\Order\Box\Option;
 
 use Bpost\BpostApiClient\Common\XmlHelper;
 use DOMDocument;
-use DomElement;
+use DOMElement;
 
 /**
  * bPost SaturdayDelivery class
@@ -24,7 +24,7 @@ class SaturdayDelivery extends Option
      * @param DOMDocument $document
      * @param string      $prefix
      *
-     * @return DomElement
+     * @return DOMElement
      */
     public function toXML(DOMDocument $document, $prefix = 'common')
     {

@@ -2,8 +2,8 @@
 
 namespace Bpost\BpostApiClient\Bpost\Order\Box;
 
-use DomDocument;
-use DomElement;
+use DOMDocument;
+use DOMElement;
 use SimpleXMLElement;
 
 /**
@@ -46,12 +46,12 @@ interface IBox
     /**
      * Return the object as an array for usage in the XML
      *
-     * @param DomDocument $document
+     * @param DOMDocument $document
      * @param string      $prefix
      *
-     * @return DomElement
+     * @return DOMElement
      */
-    public function toXML(DomDocument $document, $prefix = null);
+    public function toXML(DOMDocument $document, $prefix = null);
 
     /**
      * @param SimpleXMLElement $xml

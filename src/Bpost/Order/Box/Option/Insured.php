@@ -5,8 +5,8 @@ namespace Bpost\BpostApiClient\Bpost\Order\Box\Option;
 use Bpost\BpostApiClient\Bpost;
 use Bpost\BpostApiClient\Common\XmlHelper;
 use Bpost\BpostApiClient\Exception\BpostLogicException\BpostInvalidValueException;
-use DomDocument;
-use DomElement;
+use DOMDocument;
+use DOMElement;
 use DOMException;
 use SimpleXMLElement;
 
@@ -137,13 +137,13 @@ class Insured extends Option
     /**
      * Return the object as an array for usage in the XML
      *
-     * @param DomDocument $document
+     * @param DOMDocument $document
      *
-     * @return DomElement
+     * @return DOMElement
      *
      * @throws DOMException
      */
-    public function toXML(DomDocument $document, $prefix = 'common')
+    public function toXML(DOMDocument $document, $prefix = 'common')
     {
         $insured = $document->createElement(XmlHelper::getPrefixedTagName('insured', $prefix));
 

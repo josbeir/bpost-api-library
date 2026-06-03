@@ -14,8 +14,8 @@ use Bpost\BpostApiClient\Exception\BpostLogicException\BpostInvalidLengthExcepti
 use Bpost\BpostApiClient\Exception\BpostLogicException\BpostInvalidValueException;
 use Bpost\BpostApiClient\Exception\BpostNotImplementedException;
 use Bpost\BpostApiClient\Exception\XmlException\BpostXmlInvalidItemException;
-use DomDocument;
-use DomElement;
+use DOMDocument;
+use DOMElement;
 use SimpleXMLElement;
 
 /**
@@ -154,13 +154,13 @@ abstract class National extends ComplexAttribute implements IBox
     /**
      * Return the object as an array for usage in the XML
      *
-     * @param DomDocument $document
+     * @param DOMDocument $document
      * @param string      $prefix
      * @param string      $type
      *
-     * @return DomElement
+     * @return DOMElement
      */
-    public function toXML(DomDocument $document, $prefix = null, $type = null)
+    public function toXML(DOMDocument $document, $prefix = null, $type = null)
     {
         $typeElement = $document->createElement($type);
 
